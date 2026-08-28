@@ -1,1 +1,147 @@
-<placeholder>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jubilee Me, Inc. — Restoration and Restitution</title>
+  <meta name="description" content="A boys ranch where children separated from their parents can be restored, and where restitution can make everyone whole." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c4a05a;
+      --gold-dark: #9a7840;
+      --cream: #f7f1e6;
+      --ink: #2c2419;
+      --muted: #5c5348;
+      --teal: #1b3a38;
+      --white: #fffcf7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 6vw;
+      background: var(--teal);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: #f3e6c4;
+    }
+    .brand img { width: 86px; height: 86px; object-fit: contain; border-radius: 50%; }
+    .wordmark {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #f3e6c4;
+    }
+    .wordmark span { color: #e8c56b; }
+    .nav { display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a { color: #e8c56b; text-decoration: none; font-weight: 500; }
+    .nav a:hover { color: #fff8e8; }
+    html { scroll-behavior: smooth; }
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #1f1a12;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.15rem;
+      border-radius: 999px;
+    }
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 4.5rem 6vw;
+      background: linear-gradient(180deg, rgba(18,12,6,0.45), rgba(18,12,6,0.62)), url("photos/hero.jpg") center/cover no-repeat, #3d4a3a;
+      color: var(--white);
+    }
+    .hero-copy {
+      max-width: 40rem;
+      padding: 1.6rem 1.4rem 1.8rem;
+      background: rgba(20, 14, 8, 0.62);
+      border: 1px solid rgba(243, 230, 196, 0.22);
+      border-radius: 18px;
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 500;
+      color: #fff8e8;
+    }
+    .hero p { color: #e8c56b; margin: 1rem auto 1.6rem; }
+    main { max-width: 760px; margin: 0 auto; padding: 3.5rem 6vw 2rem; }
+    h2 { font-family: "Cormorant Garamond", serif; font-size: 2rem; margin: 2.4rem 0 0.8rem; }
+    p { margin-bottom: 1rem; color: var(--muted); font-size: 1.08rem; }
+    .photo { width: 100%; min-height: 220px; margin: 1.6rem 0; border-radius: 14px; background: #d8cbb3 center/cover no-repeat; }
+    .cta-box { margin: 2.4rem 0 1rem; padding: 1.8rem; background: var(--white); border: 1px solid #eadfca; border-radius: 16px; text-align: center; }
+    .cta-box p { color: var(--ink); }
+    footer { text-align: center; padding: 2.2rem 6vw 2.6rem; background: var(--teal); color: #d7c9a6; }
+    footer img { width: 72px; height: 72px; object-fit: contain; border-radius: 50%; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#">
+      <img src="photos/logo-mark.png" alt="Jubilee Me horse logo" />
+      <span class="wordmark">Jubilee Me<span>, Inc.</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="https://www.gofundme.com">Give</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>What was lost can be restored.</h1>
+      <p>Jubilee recognizes God’s heart and ability to restore and give back everything that has been lost.</p>
+      <a class="btn" href="https://www.gofundme.com">Give on GoFundMe</a>
+    </div>
+  </section>
+  <main>
+    <div class="photo" style="background-image:url('photos/horses.jpg'); min-height: 320px;"></div>
+    <h2 id="about">A place for boys to be made whole</h2>
+    <p>This kids ranch will allow boys who have been separated from their parents for whatever reason to have a place to come and be restored. To be made whole so that they can have the good life that God designed for them.</p>
+    <div class="photo" style="background-image:url('photos/fence.jpg'); min-height: 420px;"></div>
+    <h2 id="programs">A way to make restitution</h2>
+    <p>It also allows those who have taken from others to make restitution by giving into this Jubilee Me project.</p>
+    <p>If you have harmed anyone, you should make restitution to them; this is part of making them whole.</p>
+    <p>But if you don’t even know their name or where they live, how can you do that?</p>
+    <p>This project allows you to make restitution to a proxy young person who could never pay you back — and in that way, gives you an outlet to make restitution in a meaningful way.</p>
+    <p>Making restitution was designed by God to bring wholeness to everyone involved.</p>
+    <div class="cta-box" id="donate">
+      <h2 style="margin-top:0">Be part of the restoration</h2>
+      <p>Your gift helps purchase the land and build the place where restoration and restitution meet.</p>
+      <p>Help build a place where children are made whole. Your gift plants something eternal.</p>
+      <a class="btn" href="https://www.gofundme.com">Give on GoFundMe</a>
+    </div>
+    <h2 id="contact">Contact</h2>
+    <p>Jubilee Me, Inc. is being formed as a nonprofit to restore children who have suffered loss or harm, and to support other ministries doing the same work.</p>
+    <p>For questions about the ranch, giving, or partnership, reach out through GoFundMe for now. A contact form and email will be added as the corporation filing is completed.</p>
+  </main>
+  <footer>
+    <img src="photos/logo-mark.png" alt="Jubilee Me horse logo" /><br />
+    Thank you for being part of Jubilee Me.<br />
+    Jubilee Me, Inc.
+  </footer>
+</body>
+</html>
