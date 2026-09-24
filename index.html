@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Jubilee Me, Inc. — Restoration and Restitution</title>
   <meta name="description" content="A boys ranch where children separated from their parents can be restored, and where restitution can make everyone whole." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,21 +19,24 @@
       --white: #fffcf7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       font-family: "Source Sans 3", system-ui, sans-serif;
       color: var(--ink);
       background: var(--cream);
       line-height: 1.65;
+      overflow-x: hidden;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.85rem 6vw;
+      padding-top: max(0.85rem, env(safe-area-inset-top));
       background: var(--teal);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
     }
     .brand {
       display: flex;
@@ -41,19 +44,20 @@
       gap: 0.85rem;
       text-decoration: none;
       color: #f3e6c4;
+      min-width: 0;
     }
-    .brand img { width: 86px; height: 86px; object-fit: contain; border-radius: 50%; }
+    .brand img { width: 64px; height: 64px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
     .wordmark {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: #f3e6c4;
+      white-space: nowrap;
     }
     .wordmark span { color: #e8c56b; }
     .nav { display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap; justify-content: flex-end; }
     .nav a { color: #e8c56b; text-decoration: none; font-weight: 500; }
     .nav a:hover { color: #fff8e8; }
-    html { scroll-behavior: smooth; }
     .btn {
       display: inline-block;
       background: var(--gold);
@@ -65,6 +69,7 @@
     }
     .hero {
       min-height: 78vh;
+      min-height: 78svh;
       display: grid;
       place-items: center;
       text-align: center;
@@ -92,29 +97,65 @@
     .photo { width: 100%; min-height: 220px; margin: 1.6rem 0; border-radius: 14px; background: #d8cbb3 center/cover no-repeat; }
     .cta-box { margin: 2.4rem 0 1rem; padding: 1.8rem; background: var(--white); border: 1px solid #eadfca; border-radius: 16px; text-align: center; }
     .cta-box p { color: var(--ink); }
-    footer { text-align: center; padding: 2.2rem 6vw 2.6rem; background: var(--teal); color: #d7c9a6; }
+    footer { text-align: center; padding: 2.2rem 6vw 2.6rem; padding-bottom: max(2.6rem, env(safe-area-inset-bottom)); background: var(--teal); color: #d7c9a6; }
     footer img { width: 72px; height: 72px; object-fit: contain; border-radius: 50%; margin-bottom: 0.7rem; }
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: #e8c56b;
+      font-size: 1.6rem;
+      line-height: 1;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .menu-toggle { display: inline-block; }
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--teal);
+        padding: 0.5rem 0;
+        display: none;
+        border-top: 1px solid rgba(232,197,107,0.25);
+      }
+      .nav.open { display: flex; }
+      .nav a {
+        padding: 0.9rem 6vw;
+        border-bottom: 1px solid rgba(232,197,107,0.12);
+      }
+      .nav .btn { margin: 0.6rem 6vw; text-align: center; }
+      .brand img { width: 52px; height: 52px; }
+      .wordmark { font-size: 1.25rem; }
+      .wordmark .inc { display: none; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a class="brand" href="#">
+    <a class="brand" href="#top">
       <img src="photos/logo-mark.png" alt="Jubilee Me horse logo" />
-      <span class="wordmark">Jubilee Me<span>, Inc.</span></span>
+      <span class="wordmark">Jubilee Me<span class="inc">, Inc.</span></span>
     </a>
-    <nav class="nav">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav" id="nav">
       <a href="#about">About</a>
       <a href="#programs">Programs</a>
       <a href="#donate">Donate</a>
       <a href="#contact">Contact</a>
-      <a class="btn" href="https://www.gofundme.com">Give</a>
+      <a class="btn" href="https://gofund.me/cda89c575">Give</a>
     </nav>
   </header>
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-copy">
       <h1>What was lost can be restored.</h1>
-      <p>Jubilee recognizes God’s heart and ability to restore and give back everything that has been lost.</p>
-      <a class="btn" href="https://www.gofundme.com">Give on GoFundMe</a>
+      <p>Jubilee recognizes God's heart and ability to restore and give back everything that has been lost.</p>
+      <a class="btn" href="https://gofund.me/cda89c575">Give on GoFundMe</a>
     </div>
   </section>
   <main>
@@ -125,14 +166,14 @@
     <h2 id="programs">A way to make restitution</h2>
     <p>It also allows those who have taken from others to make restitution by giving into this Jubilee Me project.</p>
     <p>If you have harmed anyone, you should make restitution to them; this is part of making them whole.</p>
-    <p>But if you don’t even know their name or where they live, how can you do that?</p>
+    <p>But if you don't even know their name or where they live, how can you do that?</p>
     <p>This project allows you to make restitution to a proxy young person who could never pay you back — and in that way, gives you an outlet to make restitution in a meaningful way.</p>
     <p>Making restitution was designed by God to bring wholeness to everyone involved.</p>
     <div class="cta-box" id="donate">
       <h2 style="margin-top:0">Be part of the restoration</h2>
       <p>Your gift helps purchase the land and build the place where restoration and restitution meet.</p>
       <p>Help build a place where children are made whole. Your gift plants something eternal.</p>
-      <a class="btn" href="https://www.gofundme.com">Give on GoFundMe</a>
+      <a class="btn" href="https://gofund.me/cda89c575">Give on GoFundMe</a>
     </div>
     <h2 id="contact">Contact</h2>
     <p>Jubilee Me, Inc. is being formed as a nonprofit to restore children who have suffered loss or harm, and to support other ministries doing the same work.</p>
@@ -143,5 +184,26 @@
     Thank you for being part of Jubilee Me.<br />
     Jubilee Me, Inc.
   </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.innerHTML = open ? '&#10005;' : '&#9776;';
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML = '&#9776;';
+    }));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '&#9776;';
+      }
+    });
+  </script>
 </body>
 </html>
